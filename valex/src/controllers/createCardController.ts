@@ -7,6 +7,10 @@ export async function createCardController(req: Request, res: Response){
 
     const {"x-api-key": apiKey} = req.headers
 
+    if(!apiKey){
+        return res.status(401).send("required x-api-key")
+    }
+
     if(typeof(apiKey)!=="string"){
         return res.status(401).send("apiKey not found")
     }

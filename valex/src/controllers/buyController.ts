@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import buyService from "../services/boyService";
+import buyService from "../services/buyService";
 
 export default async function buyController(req: Request, res: Response){
 

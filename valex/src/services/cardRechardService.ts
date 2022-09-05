@@ -15,7 +15,10 @@ export default async function cardRechargeService(dataRecharge: typedataRecharge
         throw{code: "card expiraed"}
     }
 
-    const  rechargeData = { cardId: dataRecharge.cardId, amount:dataRecharge.amount } 
+    const  rechargeData = { cardId: dataRecharge.cardId, 
+                            amount: Math.floor(dataRecharge.amount*100) } 
+
+
     const Recharged = insertRecharge(rechargeData)
     
     console.log(datacard)

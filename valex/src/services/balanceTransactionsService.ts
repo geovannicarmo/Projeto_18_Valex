@@ -9,17 +9,23 @@ console.log(transactions)
 
 let balance = 0
 
-transactions.map((data)=>{balance-=data.amount})
+transactions.map((data)=>
+{balance-=data.amount
+    data.amount=data.amount/100
+})
 
 const recharges = await rechargeRepository(cardId)
 
-recharges.map((data)=>{balance+=data.amount})
+const rechargesD = recharges.map((data)=>{
+    balance+=data.amount
+    data.amount=data.amount/100
+})
 
 console.log(recharges)
 
 console.log(balance)
 
-const balanceTransactions = {balance, transactions, recharges}
+const balanceTransactions = {balance: (balance/100), transactions, recharges}
 
 return balanceTransactions
 

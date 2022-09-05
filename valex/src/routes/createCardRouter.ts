@@ -1,8 +1,11 @@
 import { Router } from "express";
 import { createCardController } from "../controllers/createCardController";
+import { validateCreated } from "../schemas/createdSchema";
 
-const routerteste = Router()
+import validadeInputmeddleware from "../middlewares/middleware";
 
-routerteste.post('/createCard', createCardController)
+const createdRouter = Router()
 
-export default routerteste
+createdRouter.post('/createCard', validadeInputmeddleware(validateCreated), createCardController)
+
+export default createdRouter

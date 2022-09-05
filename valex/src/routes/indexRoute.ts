@@ -1,5 +1,6 @@
 import { Router } from "express";
-import routerteste from "./createCardRouter";
+
+import createdRouter from "./createCardRouter";
 import cardActivateRouter from "./cardActivateRouter";
 import routerBlock from "./blockCardRouter";
 import cardRechargeRouter from "./cardRecharge";
@@ -8,12 +9,14 @@ import buyRouter from "./buyRouter";
 
 const router = Router();
 
-router.use(routerteste)
-router.use(cardActivateRouter)
+
 router.use(routerBlock)
-router.use(cardActivateRouter)
 router.use(cardRechargeRouter)
-router.use(balanceTransactionsRouter)
 router.use(buyRouter)
+
+router.use(cardActivateRouter)
+router.use(balanceTransactionsRouter)
+router.use(createdRouter)
+
 
 export default router
