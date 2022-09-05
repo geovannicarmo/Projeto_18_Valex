@@ -1,7 +1,15 @@
 # Projeto_18_Valex
 
 
-## Rotas
+## Routes
 
 ### /createCard
+#### input example
+
+{
+  "employeeId": "3",
+  "type": "transport"
+}
+
+
 
