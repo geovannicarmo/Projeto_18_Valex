@@ -5,29 +5,25 @@
 
 ### /createCard
 #### input example
-
+##### headers:
+x-api-key: zadKLNx.DzvOVjQH01TumGl2urPjPQSxUbf67vs0
+##### boby:
 {
   "employeeId": "3",
   "type": "transport"
 }
 
 ### /cardActivate
-
+#### input example
 {
   "cardId": 21,
   "securityCode": "859",
   "password": 4565
 }
 
-### /cardActivate
-
-{
-  "cardId": 21,
-  "securityCode": "859",
-  "password": 4565
-}
 
 ### /unlock
+#### input example
 
 {
   "cardId": 21,
@@ -35,6 +31,7 @@
 }
 
 ### /block
+#### input example
 
 {
   "cardId": 21,
@@ -42,19 +39,24 @@
 }
 
 ### /balanceTransactions
+#### input example
 
 {
   "cardId": 21
 }
 
 ### /cardRecharge
+#### input example
 
+##### headers:
+x-api-key: zadKLNx.DzvOVjQH01TumGl2urPjPQSxUbf67vs0
 {
   "cardId": 21,
   "amount": 10
 }
 
 ### /buy
+#### input example
 
 {
   "cardId": 21,
