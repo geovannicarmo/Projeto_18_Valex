@@ -19,6 +19,14 @@
   "password": 4565
 }
 
+### /cardActivate
+
+{
+  "cardId": 21,
+  "securityCode": "859",
+  "password": 4565
+}
+
 ### /unlock
 
 {
