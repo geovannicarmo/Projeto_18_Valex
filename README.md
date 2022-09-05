@@ -15,6 +15,7 @@ x-api-key: zadKLNx.DzvOVjQH01TumGl2urPjPQSxUbf67vs0
 
 ### /cardActivate
 #### input example
+##### boby:
 {
   "cardId": 21,
   "securityCode": "859",
@@ -24,7 +25,7 @@ x-api-key: zadKLNx.DzvOVjQH01TumGl2urPjPQSxUbf67vs0
 
 ### /unlock
 #### input example
-
+##### boby:
 {
   "cardId": 21,
   "password": "4565"
@@ -32,7 +33,7 @@ x-api-key: zadKLNx.DzvOVjQH01TumGl2urPjPQSxUbf67vs0
 
 ### /block
 #### input example
-
+##### boby:
 {
   "cardId": 21,
   "password": "4565"
@@ -40,16 +41,16 @@ x-api-key: zadKLNx.DzvOVjQH01TumGl2urPjPQSxUbf67vs0
 
 ### /balanceTransactions
 #### input example
-
+##### boby:
 {
   "cardId": 21
 }
 
 ### /cardRecharge
 #### input example
-
 ##### headers:
 x-api-key: zadKLNx.DzvOVjQH01TumGl2urPjPQSxUbf67vs0
+##### boby:
 {
   "cardId": 21,
   "amount": 10
@@ -57,7 +58,7 @@ x-api-key: zadKLNx.DzvOVjQH01TumGl2urPjPQSxUbf67vs0
 
 ### /buy
 #### input example
-
+##### boby:
 {
   "cardId": 21,
   "password": "4565",
