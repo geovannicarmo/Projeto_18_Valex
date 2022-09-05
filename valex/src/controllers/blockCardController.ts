@@ -13,9 +13,9 @@ export  async function blockCardController(req: Request, res: Response){
     const reqBlockService = await blockSrvice(dataBlock)
     
     
-    res.send(req.body)
+    res.send("blocked card")
 }catch(error){
-    return res.status(400).send(error)
+    return res.status(401).send(error)
 }
 }
 
@@ -30,8 +30,8 @@ export  async function unlockCardController(req: Request, res: Response){
     const reqBlockService = await blockSrvice(dataBlock)
     
     
-    res.send(req.body)
+    res.send("unlocked card")
 }catch(error){
-    return res.status(400).send(error)
+    return res.status(401).send(error)
 }
 }

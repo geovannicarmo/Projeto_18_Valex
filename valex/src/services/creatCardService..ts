@@ -1,6 +1,5 @@
 import { faker } from '@faker-js/faker';
 import dayjs from 'dayjs';
-import Cryptr from 'cryptr'
 
 import * as company from '.././repositories/companyRepository'
 import * as employee from '../repositories/employeeRepository'
@@ -16,20 +15,20 @@ export default async function creatCardService(apiKey: string, data: any){
         throw {code: "not found company"}
     }
 
-    console.log(dataCompany)
-
+    
     const employeeId: number = data.employeeId
     const dataEmployee = await employee.findById(employeeId)
+    
 
     if(dataEmployee===undefined){
         throw {code: "not found employeed"}
     }
 
     if(dataCompany.id!==dataEmployee.companyId){
-        throw {code: "not found employeed"}
+        throw {code: "It is not possible to create cards for employees of other companies"}
     }
 
-    console.log(dataEmployee)
+    
 
     const type = data.type
     const isCardType = await cardRepository.findByTypeAndEmployeeId(type, employeeId)
@@ -43,16 +42,11 @@ export default async function creatCardService(apiKey: string, data: any){
 
 
    const  cardholderName = nameCard(dataEmployee.fullName)
-
- console.log(cardholderName)
-
     
-
     const cardNunber = faker.finance.creditCardNumber()
-    console.log(cardNunber)
+   
 
     const cvv = faker.finance.creditCardCVV()
-    console.log(cvv)
     const securityCode = encryptWhithCryptr(cvv)
 
     
@@ -73,12 +67,17 @@ export default async function creatCardService(apiKey: string, data: any){
         employeeId
     }
 
-    await cardRepository.insert(cardData)
+    const dataCard =  await cardRepository.insert(cardData)
 
     
 
 
-    return "opaaaa"
+    return {cardNunber,
+        cardholderName, 
+        cvv,
+        expirationDate,
+        type
+    }
 } 
 
 function nameCard(fullName:string){

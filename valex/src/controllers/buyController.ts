@@ -10,10 +10,8 @@ try{
     
    const resBuy =  await buyService(dataPayment)
 
-   
-    console.log(resBuy)
     
-    res.send("bdgf")
+    res.send("approved transaction")
 }catch(error){
     return res.status(401).send(error)
 }

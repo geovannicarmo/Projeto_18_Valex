@@ -1,9 +1,6 @@
 import { Request, Response } from "express"
 import cardActivateService from "../services/cardActivateService"
 
-
-
-
 export default async function cardActivateController(req: Request, res: Response){
 
     const dataActivate = req.body
@@ -16,15 +13,12 @@ export default async function cardActivateController(req: Request, res: Response
 
     const resCardActivateService = await cardActivateService(dataActivate)
 
-    console.log(resCardActivateService)
 
 
-
-    res.sendStatus(200)
+    res.status(200).send("card actived")
 
     }catch(error){
-
-        return res.status(404).send(error)
+        return res.status(401).send(error)
     }
         
 

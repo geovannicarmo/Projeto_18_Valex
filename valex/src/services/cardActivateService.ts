@@ -8,7 +8,7 @@ export default async function cardActivateService(dataActivate: dataActivate){
 const dataCard = await cardRepository.findById(dataActivate.cardId)
 
 if(dataCard===undefined){
-    throw {code:"cardId not found"}
+    throw {code:"access denied cardId invalid"}
 }
 
 const cvv = decryptWhithCryptr(dataCard.securityCode)

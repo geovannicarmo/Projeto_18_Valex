@@ -28,8 +28,6 @@ export default async function buyService(dataPayment: typedataPayment){
 
     const isBusinesses = await businessesRepository(dataPayment.businessesId)
 
-    console.log(isBusinesses)
-    console.log("isBusinesses")
 
     if(!isBusinesses){
         throw {code:"Businesses not found"}
@@ -46,8 +44,6 @@ export default async function buyService(dataPayment: typedataPayment){
     }
 
     const resBalanceService = await balanceTransactionsService(dataPayment.cardId)
-
-    console.log(resBalanceService.balance)
 
     if(resBalanceService.balance<paymentData.amount/100){
 

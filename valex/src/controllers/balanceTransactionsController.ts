@@ -14,7 +14,7 @@ export default async function balanceTransactionsController(req: Request, res: R
         return res.send(resBalanceService)
 
     }catch(error){
-        return res.status(401).send(error)
+        return res.status(404).send(error)
     }
 
 }

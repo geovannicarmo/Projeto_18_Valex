@@ -8,11 +8,11 @@ export async function createCardController(req: Request, res: Response){
     const {"x-api-key": apiKey} = req.headers
 
     if(!apiKey){
-        return res.status(401).send("required x-api-key")
+        return res.status(404).send("required x-api-key")
     }
 
     if(typeof(apiKey)!=="string"){
-        return res.status(401).send("apiKey not found")
+        return res.status(404).send("apiKey not found")
     }
 
     const data = req.body
@@ -20,15 +20,13 @@ export async function createCardController(req: Request, res: Response){
 try{
 
     const created = await creatCardService(apiKey, data)
+    res.send(created)
     
 }catch(error){
-    if(error==="card alreaydy exist"){
-        return res.status(401).send(error)
-    }
-    return res.status(404).send(error)
-}
-    
 
-    res.send(req.body)
+    return res.status(401).send(error)
+    
+    
+}
 
 }
